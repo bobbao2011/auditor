@@ -14,4 +14,15 @@
  run;
 %mend;
 
-%create_test_data;
+* Gather the measurement for our data set;
+libname target "d:\auditor\test";
+
+data measurements;
+  dsid = open('target.test_data');
+  nobs = attrn(dsid, 'nobs');
+  nvars = attrn(dsid, 'nvars');
+  modte = datepart(attrn(dsid, 'noddte'));
+  rc = close(dsid);
+  audit_date = today();
+  drop rc dsid;
+run;
