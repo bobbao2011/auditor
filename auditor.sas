@@ -21,7 +21,7 @@ data measurements;
   dsid = open('target.test_data');
   nobs = attrn(dsid, 'nobs');
   nvars = attrn(dsid, 'nvars');
-  modte = datepart(attrn(dsid, 'noddte'));
+  modte = datepart(attrn(dsid, 'modte'));
   rc = close(dsid);
   audit_date = today();
   drop rc dsid;
